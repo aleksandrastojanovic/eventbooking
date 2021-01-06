@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bynjak.eventbooking.entity.Cashier;
-import com.bynjak.eventbooking.service.UserService;
+import com.bynjak.eventbooking.service.CashierService;
 
 @Controller
 @RequestMapping("/cashiers")
 public class CashierController {
 
-	private UserService<Cashier> cashierService;
+	private CashierService cashierService;
 
 	@Autowired
-	public CashierController(UserService<Cashier> cashierService) {
+	public CashierController(CashierService cashierService) {
 		this.cashierService = cashierService;
 	}
 

@@ -6,16 +6,16 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bynjak.eventbooking.dao.UserRepository;
+import com.bynjak.eventbooking.dao.CashierRepository;
 import com.bynjak.eventbooking.entity.Cashier;
 
 @Service
-public class CashierServiceImpl implements UserService<Cashier> {
+public class CashierServiceImpl implements CashierService {
 
-	private UserRepository<Cashier> cashierRepository;
+	private CashierRepository cashierRepository;
 
 	@Autowired
-	public CashierServiceImpl(UserRepository<Cashier> cashierRepository) {
+	public CashierServiceImpl(CashierRepository cashierRepository) {
 		this.cashierRepository = cashierRepository;
 	}
 
