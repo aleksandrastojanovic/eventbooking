@@ -1,4 +1,4 @@
-package com.bynjak.eventbooking.entity;
+package com.bynjak.eventbooking.user.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -8,12 +8,12 @@ import javax.persistence.Table;
 public class Admin extends User {
 
 	public Admin(){
-		super("ADMIN");
+		super(Role.ADMIN.toString());
 	}
 
 	public Admin(String firstName, String lastName, String username,
 			String password) {
-		super("ADMIN", firstName, lastName, username, password);
+		super(Role.ADMIN.toString(), firstName, lastName, username, password);
 	}
 
 }

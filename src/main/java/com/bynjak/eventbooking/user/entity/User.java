@@ -1,4 +1,4 @@
-package com.bynjak.eventbooking.entity;
+package com.bynjak.eventbooking.user.entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

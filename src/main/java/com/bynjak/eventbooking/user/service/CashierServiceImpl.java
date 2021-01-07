@@ -1,4 +1,4 @@
-package com.bynjak.eventbooking.service;
+package com.bynjak.eventbooking.user.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bynjak.eventbooking.dao.CashierRepository;
-import com.bynjak.eventbooking.entity.Cashier;
+import com.bynjak.eventbooking.user.dao.CashierRepository;
+import com.bynjak.eventbooking.user.entity.Cashier;
+import com.bynjak.eventbooking.user.entity.Role;
 
 @Service
 public class CashierServiceImpl implements CashierService {
@@ -42,13 +43,9 @@ public class CashierServiceImpl implements CashierService {
 
 	}
 
-	public List<Cashier> findAll() {
-		return cashierRepository.findAll();
+	public List<Cashier> findByRoleEquals() {
+		return cashierRepository.findByRoleEquals(Role.CASHIER.toString());
 	}
 
-//	public List<Cashier> findByRoleEquals(String role) {
-//
-//		return cashierRepository.findAll();
-//	}
 
 }

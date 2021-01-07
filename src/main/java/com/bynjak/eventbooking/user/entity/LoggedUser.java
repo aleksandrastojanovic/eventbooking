@@ -1,10 +1,15 @@
-package com.bynjak.eventbooking.entity;
+package com.bynjak.eventbooking.user.entity;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.SecondaryTable;
+import javax.persistence.Table;
 
-@Embeddable
-public class UserDetails {
+@Entity
+@Table(name = "user")
+@SecondaryTable(name = "logged_user_details", pkJoinColumns = @PrimaryKeyJoinColumn(name = "user_id"))
+public class LoggedUser extends User {
 
 	@Column(name = "city", table = "logged_user_details")
 	private String city;
@@ -18,8 +23,15 @@ public class UserDetails {
 	@Column(name = "phone_number", table = "logged_user_details")
 	private String phoneNumber;
 
-	public UserDetails(String city, String address, String email,
+	public LoggedUser() {
+		super(Role.LOGGED_USER.toString());
+	}
+
+	public LoggedUser(String firstName, String lastName, String username,
+			String password, String city, String address, String email,
 			String phoneNumber) {
+		super(Role.LOGGED_USER.toString(), firstName, lastName, username,
+				password);
 		this.city = city;
 		this.address = address;
 		this.email = email;

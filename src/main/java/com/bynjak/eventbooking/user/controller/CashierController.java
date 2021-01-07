@@ -1,4 +1,4 @@
-package com.bynjak.eventbooking.controller;
+package com.bynjak.eventbooking.user.controller;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.bynjak.eventbooking.entity.Cashier;
-import com.bynjak.eventbooking.service.CashierService;
+import com.bynjak.eventbooking.user.entity.Cashier;
+import com.bynjak.eventbooking.user.service.CashierService;
 
 @Controller
 @RequestMapping("/cashiers")
@@ -29,7 +29,7 @@ public class CashierController {
 	public String listcashiers(Model theModel) {
 
 		// retrieve all cashiers from db
-		List<Cashier> cashiers = cashierService.findAll();
+		List<Cashier> cashiers = cashierService.findByRoleEquals();
 
 		// add them to spring model
 		theModel.addAttribute("cashiers", cashiers);
